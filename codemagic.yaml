@@ -1,0 +1,10 @@
+# Check out https://docs.codemagic.io/getting-started/yaml/ for more information
+# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
+workflows:
+    flutter-widget:
+        name: Flutter Widget
+        environment:
+            flutter: dev
+        scripts:
+            - flutter packages pub get
+            - flutter test
