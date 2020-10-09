@@ -4,13 +4,11 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    ## RULES TO FOLLOW TO WORK ON THE MOBILE APP
+These are standard production app methods and i have to used it to Build.
+The app will be using  “Flutter ScreenUtil” package to ensure the app design is consistent across all mobile devices.
+The app will be developed using “Stacked” architecture based on provider.
+Font size will scale according to the device’s accessibility setting “font size”.
+I will be using Codemagic CI/CD and others to checkmate when i push, so as i don’t push code with bugs or errors.
+The layout of the codebase will just implement stacked architecture .
+TESTING EVERYTHING FROM UNIT | INTEGRATION | SOME WIDGETS
