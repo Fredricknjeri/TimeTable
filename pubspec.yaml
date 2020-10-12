@@ -31,6 +31,7 @@ dependencies:
   injectable:
   stacked_services:
   shared_preferences: ^0.5.12
+  table_calendar: ^2.2.3
 
   
   

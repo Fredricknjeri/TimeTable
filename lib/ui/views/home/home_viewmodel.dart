@@ -12,6 +12,7 @@ class HomeViewModel extends BaseViewModel {
   Future navigateToHome() async {
     await _navigationService.navigateTo(Routes.homeViewRoute);
   }
+
 }
 
 
