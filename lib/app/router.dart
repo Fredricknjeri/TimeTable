@@ -1,3 +1,4 @@
+import 'package:TimeTable/ui/views/class/add_class/add_event.dart';
 import 'package:TimeTable/ui/views/home/home_view.dart';
 import 'package:TimeTable/ui/views/introduction/intro_view.dart';
 import 'package:TimeTable/ui/views/splash_screen/splash_screen.dart';
@@ -10,6 +11,7 @@ abstract class Routes {
   static const teacherViewRoute = '/teacher';
   static const introViewRoute = '/intro';
   static const splashViewRoute = '/splashscreen';
+  static const add_eventRoute = '/add_event';
 }
 
 class MainRouter {
@@ -27,6 +29,9 @@ class MainRouter {
 
       case Routes.splashViewRoute:
         return MaterialPageRoute(builder: (_) => SplashScreen());
+
+      case Routes.add_eventRoute:
+        return MaterialPageRoute(builder: (_) => AddEventPage());
 
       default:
         return MaterialPageRoute(

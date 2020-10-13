@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "505184094260",
+    "firebase_url": "https://timetable-291919.firebaseio.com",
+    "project_id": "timetable-291919",
+    "storage_bucket": "timetable-291919.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505184094260:android:e49ab1fb25fe5bb3c6a261",
+        "android_client_info": {
+          "package_name": "com.smartapp.TimeTable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505184094260-7950g394qqrfn2hb5ed4h7q61rvvvfof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA6wqjPmkgnA6mSgvHbQG6Oq8JQXvNSLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505184094260-7950g394qqrfn2hb5ed4h7q61rvvvfof.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "505184094260-cvt7spa95e25376fjcle810a4loboms6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smartapp.TimeTable"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

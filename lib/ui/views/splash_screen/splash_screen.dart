@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       //await prefs.setBool('seen', true);
       return Navigator.of(context)
           .pushReplacementNamed(Routes.introViewRoute)
-          // we dont want to pop the screen, just replace it completely
+          // i dont want to pop the screen, just replace it completely
           .then((_) => false);
     }
   }
