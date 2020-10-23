@@ -1,4 +1,5 @@
 import 'package:TimeTable/core/model/event.dart';
+import 'package:TimeTable/ui/views/add_calender/add_calender.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,8 +11,9 @@ class EventDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      backgroundColor: Color(0xFF2B292A),
       appBar: AppBar(
-        title: Text('Event details'),
+        title: Text('Class details'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -21,10 +23,16 @@ class EventDetailsPage extends StatelessWidget {
             Text(event.title, style: Theme.of(context).textTheme.display1,),
             SizedBox(height: 20.0),
             Text(event.description),
-            
+            SizedBox(height: 20.0),
+            AddCalender()       
           ],
         ),
       ),
+      floatingActionButton:  FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => Navigator.pushNamed(context, '/add_calender'),
+      ),
     );
   }
+  
 }

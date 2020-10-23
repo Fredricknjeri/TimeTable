@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:TimeTable/core/model/event.dart';
 import 'package:TimeTable/core/services/event_firestore_service.dart';
+import 'package:TimeTable/ui/views/add_to_calender/add_to_calenderview.dart';
+import 'package:TimeTable/ui/views/class/add_class/add_class.dart';
 import 'package:TimeTable/ui/views/class/view_class/view_event.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -39,9 +41,10 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF2B292A),
       appBar: AppBar(
-        title: Text('School TimeTable'),
-
+        backgroundColor: Colors.black,
+        title: Text('Classes'),
       ),
       body: StreamBuilder<List<EventModel>>(
           stream: eventDBS.streamList(),
@@ -59,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.only(top: 10) ),
+                  Padding(padding: EdgeInsets.only(top: 10)),
                   TableCalendar(
                     events: _events,
                     initialCalendarFormat: CalendarFormat.week,
@@ -111,14 +114,19 @@ class _HomeViewState extends State<HomeView> {
                     calendarController: _controller,
                   ),
                   ..._selectedEvents.map((event) => ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.green,
+                          child: Icon(Icons.add),
+                        ),
                         title: Text(event.title),
+                        subtitle: Text(" "+ event.eventDate.hour.toString()+ ":" + event.eventDate.minute.toString()),
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => EventDetailsPage(
-                                        event: event,
-                                      )));
+                           Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => AddToCalenderView(
+                                  event: event,
+                                )));
                         },
                       )),
                 ],
@@ -127,7 +135,7 @@ class _HomeViewState extends State<HomeView> {
           }),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => Navigator.pushNamed(context, '/add_event'),
+        onPressed: () => Navigator.pushNamed(context, '/addtocalender'),
       ),
     );
   }

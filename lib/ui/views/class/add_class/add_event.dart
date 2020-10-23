@@ -1,6 +1,8 @@
+import 'package:TimeTable/core/api/calender_client.dart';
 import 'package:TimeTable/core/model/event.dart';
 import 'package:TimeTable/core/services/event_firestore_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class AddEventPage extends StatefulWidget {
   final EventModel note;
@@ -12,13 +14,19 @@ class AddEventPage extends StatefulWidget {
 }
 
 class _AddEventPageState extends State<AddEventPage> {
+  CalendarClient calendarClient = CalendarClient();
+  DateTime startTime = DateTime.now();
+  DateTime endTime = DateTime.now().add(Duration(days: 1));
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   TextEditingController _title;
   TextEditingController _description;
   DateTime _eventDate;
   final _formKey = GlobalKey<FormState>();
   final _key = GlobalKey<ScaffoldState>();
+
   bool processing;
+
+ // get _id => null;
 
   @override
   void initState() {
@@ -95,6 +103,66 @@ class _AddEventPageState extends State<AddEventPage> {
                 },
               ),
               SizedBox(height: 10.0),
+              //working with datetimepicker to include time
+
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Row(
+                  children: [
+                    FlatButton(
+                        onPressed: () {
+                          DatePicker.showDateTimePicker(context,
+                              showTitleActions: true,
+                              minTime: DateTime(2019, 3, 5),
+                              maxTime: DateTime(2200, 6, 7), onChanged: (date) {
+                            print('change $date');
+                          }, onConfirm: (date) {
+                            setState(() {
+                              this.startTime = date;
+                            });
+                          },
+                              currentTime: DateTime.now(),
+                              locale: LocaleType.en);
+                        },
+                        child: Text(
+                          'Event Start Time',
+                          style: TextStyle(color: Colors.blue),
+                        )),
+                    Text('$startTime'),
+                  ],
+                ),
+              ),
+
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Row(
+                  children: [
+                    FlatButton(
+                        onPressed: () {
+                          DatePicker.showDateTimePicker(context,
+                              showTitleActions: true,
+                              minTime: DateTime(2019, 3, 5),
+                              maxTime: DateTime(2200, 6, 7), onChanged: (date) {
+                            print('change $date');
+                          }, onConfirm: (date) {
+                            setState(() {
+                              this.endTime = date;
+                            });
+                          },
+                              currentTime: DateTime.now(),
+                              locale: LocaleType.en);
+                        },
+                        child: Text(
+                          'Event End Time',
+                          style: TextStyle(color: Colors.blue),
+                        )),
+                    Text('$endTime'),
+                  ],
+                ),
+              ),
+
               processing
                   ? Center(child: CircularProgressIndicator())
                   : Padding(
@@ -105,6 +173,16 @@ class _AddEventPageState extends State<AddEventPage> {
                         color: Theme.of(context).primaryColor,
                         child: MaterialButton(
                           onPressed: () async {
+                            calendarClient.insert(                   
+                              _eventDate,
+                              startTime,
+                              endTime,
+                            );
+                            // Navigator.pop(context);
+                            //    setState(() {
+                            //      processing = false;
+                            //    });
+
                             if (_formKey.currentState.validate()) {
                               setState(() {
                                 processing = true;
@@ -114,8 +192,14 @@ class _AddEventPageState extends State<AddEventPage> {
                                 "description": _description.text,
                                 "event_date": widget.note.eventDate
                               };
+                              //final id = _id;
+                              
                               if (widget.note != null) {
-                                await eventDBS.updateData(widget.note.id, data);
+                                await eventDBS.updateData(widget.note.id, {
+                                  "title": _title.text,
+                                  "description": _description.text,
+                                  "event_date": widget.note.eventDate
+                                });
                               } else {
                                 await eventDBS.createItem(EventModel(
                                   title: _title.text,

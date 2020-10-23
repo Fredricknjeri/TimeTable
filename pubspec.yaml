@@ -35,6 +35,17 @@ dependencies:
   cloud_firestore: ^0.14.1+2
   firebase_core: ^0.5.0+1
   firebase_helpers: ^0.2.1
+  #To use Google Calendar API
+  googleapis: ^0.56.1
+  # To create OAuth access Credentials.
+  googleapis_auth: ^0.2.12
+  #To launch URL in browser to ask user for permission to access.
+  url_launcher: ^5.7.5
+  #choose date / time / date&time in multiple languages
+  flutter_datetime_picker: ^1.3.8
+  #bottom nav
+  bottom_navy_bar: ^5.5.0
+
 
   
   
@@ -47,6 +58,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.8.1
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/launcher/icon.png"
+  image_path_android: "assets/launcher/icon.png"
+  #adaptive_icon_background: "assets/launcher/background.png"
+  adaptive_icon_foreground: "assets/launcher/foreground.png"
  
 
 # For information on the generic Dart part of this file, see the
@@ -63,6 +83,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/logo.png
+    - assets/images/home.jpg
+    - assets/images/onboarding/onboarding1.png
+    - assets/images/onboarding/onboarding2.png
+    - assets/images/onboarding/onboarding3.png
+    - assets/images/onboarding/onboarding4.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
