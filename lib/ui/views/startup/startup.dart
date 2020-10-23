@@ -53,7 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
             //_home(context),    
             TeacherList1(),
             HomeView(), 
-            Container(color: Colors.blue),                    
+            Container(
+              color: Colors.blue,
+              child: Center(child: Text('created with Love, enjoy'),),),                    
           ],
         ),
       ),
