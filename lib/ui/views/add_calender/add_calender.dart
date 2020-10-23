@@ -1,10 +1,14 @@
 import 'dart:developer';
 import 'package:TimeTable/core/api/calender_client.dart';
 import 'package:TimeTable/core/api/calender_clientee.dart';
+import 'package:TimeTable/core/model/event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class AddCalender extends StatefulWidget {
+  final EventModel event;
+
+  const AddCalender({Key key, this.event}) : super(key: key);
   @override
   _AddCalenderState createState() => _AddCalenderState();
 }
@@ -14,6 +18,7 @@ class _AddCalenderState extends State<AddCalender> {
   DateTime startTime = DateTime.now();
   DateTime endTime = DateTime.now().add(Duration(days: 1));
   TextEditingController _eventName = TextEditingController();
+  EventModel event = EventModel();
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -75,22 +80,23 @@ class _AddCalenderState extends State<AddCalender> {
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               controller: _eventName,
-              decoration: InputDecoration(hintText: 'Enter Event name'),
-              
-
+              decoration: InputDecoration(hintText: 'class description'),
             ),
           ),
           RaisedButton(
               child: Text(
-                'Insert Event',
+                'Add class to calender',
               ),
-              color: Colors.grey,
+              color: Colors.orangeAccent,
               onPressed: () {
                 log('add event pressed');
+                //_eventName.text = event.title;
                 calendarClient.insert(
+                 //_eventName.text,
                   _eventName.text,
                   startTime,
                   endTime,
+                 // event.eventDate
                 );
               }),
         ],

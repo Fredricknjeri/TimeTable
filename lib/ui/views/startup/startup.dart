@@ -2,6 +2,7 @@ import 'package:TimeTable/core/model/event.dart';
 import 'package:TimeTable/core/services/event_firestore_service.dart';
 import 'package:TimeTable/ui/views/class/view_class/view_event.dart';
 import 'package:TimeTable/ui/views/home/home_view.dart';
+import 'package:TimeTable/ui/views/homespace/homespace.dart';
 import 'package:TimeTable/ui/views/teachers/teacher_view.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           },
           children: <Widget>[
             //_home(context),    
-            TeacherList(),
+            TeacherList1(),
             HomeView(), 
             Container(color: Colors.blue),                    
           ],

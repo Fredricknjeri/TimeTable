@@ -3,6 +3,7 @@ import 'package:TimeTable/ui/views/class/add_class/add_class.dart';
 import 'package:TimeTable/ui/views/class/add_class/add_event.dart';
 import 'package:TimeTable/ui/views/class/view_class/view_event.dart';
 import 'package:TimeTable/ui/views/home/home_view.dart';
+import 'package:TimeTable/ui/views/homespace/homespace.dart';
 import 'package:TimeTable/ui/views/introduction/intro_view.dart';
 import 'package:TimeTable/ui/views/splash_screen/splash_screen.dart';
 import 'package:TimeTable/ui/views/startup/startup.dart';
@@ -20,6 +21,7 @@ abstract class Routes {
   static const myhomepageRoute = '/';
   static const addClassToCalenderRoute = '/addtocalender';
   static const eventsDetailsPageRoute = '/eventsDetails';
+  static const teacherlistRoute = '/teacherlist';
 }
 
 class MainRouter {
@@ -27,7 +29,7 @@ class MainRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.teacherViewRoute:
-        return MaterialPageRoute(builder: (_) => TeacherList());
+        return MaterialPageRoute(builder: (_) => TeacherList1());
 
       case Routes.homeViewRoute:
         return MaterialPageRoute(builder: (_) => HomeView());
@@ -52,6 +54,9 @@ class MainRouter {
 
       case Routes.eventsDetailsPageRoute:
         return MaterialPageRoute(builder: (_) => EventDetailsPage());
+
+      case Routes.teacherlistRoute:
+        return MaterialPageRoute(builder: (_) => TeacherList());
 
       default:
         return MaterialPageRoute(

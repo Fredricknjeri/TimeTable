@@ -13,9 +13,10 @@ class AddToCalenderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(builder: (context, model, child) => Scaffold(
       
-      backgroundColor: Color(0xFF2B292A),
+      //backgroundColor: Color(0xFF2B292A),
       appBar: AppBar(
         title: Text('Class details'),
+        backgroundColor: Color(0xFF2B292A),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -26,13 +27,9 @@ class AddToCalenderView extends StatelessWidget {
             SizedBox(height: 20.0),
             Text(event.description),
             SizedBox(height: 20.0),
-            AddCalender()       
+            AddCalender(event: event)    
           ],
         ),
-      ),
-      floatingActionButton:  FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => Navigator.pushNamed(context, '/add_calender'),
       ),
     ), viewModelBuilder: () => AddToCalenderViewModel());
   }

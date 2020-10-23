@@ -23,7 +23,7 @@ class IntroScreenState extends State<IntroScreen> {
         description:
             "Welcome to the most Advanced Teaching timetable specifilly designed for you",
         pathImage: "assets/images/onboarding/onboarding1.png",
-        backgroundColor: Color(0xfa5a623),
+        backgroundColor: Color(0XFFFFFF),
       ),
     );
     slides.add(
@@ -32,7 +32,7 @@ class IntroScreenState extends State<IntroScreen> {
         description:
             "The timetable is easy to use and navigate with the use of modern Google Calender..",
         pathImage: "assets/images/onboarding/onboarding2.png",
-        backgroundColor: Color(0xff203152),
+        backgroundColor: Color(0xFFFFFF),
       ),
     );
     slides.add(
@@ -41,7 +41,7 @@ class IntroScreenState extends State<IntroScreen> {
         description:
             "View and manage your classes and lessons in the easier way possible... We love to see you shine",
         pathImage: "assets/images/onboarding/onboarding3.png",
-        backgroundColor: Color(0xFADAE),
+        backgroundColor: Color(0xFFFFFF),
       ),
     );
   }

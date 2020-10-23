@@ -1,13 +1,16 @@
 import 'package:TimeTable/ui/views/homespace/teacher_viewmodel.dart';
+import 'package:TimeTable/ui/views/teachers/teachers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class TeacherList extends StatefulWidget {
+class TeacherList1 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => TeacherListState();
 }
 
 class TeacherListState extends State {
   List<Teacher> teachers;
+  List<String> lteacher = ["Fredrick", "Violet", "Janet"];
   int count = 0;
   double top = 0.0;
 
@@ -18,34 +21,72 @@ class TeacherListState extends State {
       getData();
     }
     return Scaffold(
-      backgroundColor: Color(0xFF2B292A),
+      
+      // backgroundColor: Color(0xFF2B292A),
       body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[
-            SliverAppBar(
-              expandedHeight: 200.0,
-              floating: false,
-              pinned: true,
-              flexibleSpace: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                top = constraints.biggest.height;
-                return FlexibleSpaceBar(
-                    title: _appBarText(top),
-                    background: Image.asset(
-                      "assets/images/home.jpg",
-                      fit: BoxFit.cover,
-                    ));
-              }),
-            ),
-          ];
-        },
-        body: Center(
-          child: todoListItems(),
-        ),
-      ),
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 200.0,
+                floating: false,
+                pinned: true,
+                flexibleSpace: LayoutBuilder(builder:
+                    (BuildContext context, BoxConstraints constraints) {
+                  top = constraints.biggest.height;
+                  return FlexibleSpaceBar(
+                      title: _appBarText(top),
+                      background: Image.asset(
+                        "assets/images/home.jpg",
+                        fit: BoxFit.cover,
+                      ));
+                }),
+              ),
+            ];
+          },
+          body: Column(
+            children: [
+              Padding(padding: EdgeInsets.all(40.0)),
+            
+              ListTile(
+                  leading: const Icon(Icons.person),
+                  title: const Text("Fredrick", style: TextStyle(fontSize: 20.0, color: Color(0xFF2B292A))),
+                  subtitle: const Text('Teaches Mathematics and Sciences Classes',),
+                  onTap: () => print("ListTile")),
+              ListTile(
+                  leading: const Icon(Icons.person),
+                  title: const Text("Janet",style: TextStyle(fontSize: 20.0, color: Color(0xFF2B292A))),
+                  subtitle: const Text('teaches CRE only'),
+                  onTap: () => print("ListTile")),
+              ListTile(
+                  leading: const Icon(Icons.person),
+                  title: const Text("Violet",style: TextStyle(fontSize: 20.0, color: Color(0xFF2B292A))),
+                  subtitle: const Text('Teaches English and Kiswahili'),
+                  onTap: () => print("ListTile")),
+            ],
+          )
+          //getTeacher()
+          /*StreamBuilder<QuerySnapshot>(
+          stream: Firestore.instance.collection("products").snapshots(),
+          builder: (context, snapshot) {
+            return !snapshot.hasData
+                ? Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    itemCount: snapshot.data.documents.length,
+                    itemBuilder: (context, index) {
+                      DocumentSnapshot data = snapshot.data.documents[index];
+                      return Teachers(
+                        id: data.documentID,
+                        form: data['form'],
+                        name: data['name'],
+                      );
+                    },
+                  );
+          },
+        ),*/
+          ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-         // navigateToDetail(Teacher('', 3, ''));
+          // navigateToDetail(Teacher('', 3, ''));
           Navigator.pushNamed(context, '/add_calender');
         },
         tooltip: "Add new Teacher",
@@ -154,6 +195,16 @@ class TeacherListState extends State {
           }
         }
       */
+  Widget getTeacher() {
+    return Container(
+      child: ListView.builder(
+          itemCount: count,
+          itemBuilder: (BuildContext context, int position) {
+            return Text(lteacher[position]);
+          }),
+    );
+  }
+
   Color getColor(int rank) {
     switch (rank) {
       case 1:
