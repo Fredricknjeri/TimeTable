@@ -41,12 +41,11 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     // backgroundColor: Color(0xFF2B292A),
+      // backgroundColor: Color(0xFF2B292A),
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(' My Classes'),
-        automaticallyImplyLeading: false
-      ),
+          backgroundColor: Colors.black,
+          title: Text(' My Classes'),
+          automaticallyImplyLeading: false),
       body: StreamBuilder<List<EventModel>>(
           stream: eventDBS.streamList(),
           builder: (context, snapshot) {
@@ -116,28 +115,29 @@ class _HomeViewState extends State<HomeView> {
                   ),
                   ..._selectedEvents.map((event) => ListTile(
                         leading: CircleAvatar(
-                          backgroundColor: Colors.black,
-                          child: Icon(Icons.book)
-                        ),
+                            backgroundColor: Colors.black,
+                            child: Icon(Icons.book)),
                         title: Text(event.title),
-                        subtitle: Text(" "+ event.eventDate.hour.toString()+ ":" + event.eventDate.minute.toString()),
+                        subtitle: Text(" " +
+                            event.eventDate.hour.toString() +
+                            ":" +
+                            event.eventDate.minute.toString()),
+                        trailing: CircleAvatar(
+                          child: Icon(Icons.add),
+                        ),
                         onTap: () {
-                           Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => AddToCalenderView(
-                                  event: event,
-                                )));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => AddToCalenderView(
+                                        event: event,
+                                      )));
                         },
                       )),
                 ],
               ),
             );
           }),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => Navigator.pushNamed(context, '/addtocalender'),
-      ),
     );
   }
 }

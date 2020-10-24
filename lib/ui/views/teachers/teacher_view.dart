@@ -45,11 +45,11 @@ class TeacherListState extends State {
           },
           body: Column(
             children: [
-              Padding(padding: EdgeInsets.all(40.0)),
-            
+              Padding(padding: EdgeInsets.all(34.0)),
               ListTile(
+                  hoverColor: Colors.blue,
                   leading: const Icon(Icons.person),
-                  title: const Text("Fredrick", style: TextStyle(fontSize: 20.0, color: Color(0xFF2B292A))),
+                  title: const Text(  "Fredrick", style: TextStyle(fontSize: 20.0, color: Color(0xFF2B292A))),
                   subtitle: const Text('Teaches Mathematics and Sciences Classes',),
                   onTap: () => print("ListTile")),
               ListTile(
@@ -84,14 +84,6 @@ class TeacherListState extends State {
           },
         ),*/
           ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // navigateToDetail(Teacher('', 3, ''));
-          Navigator.pushNamed(context, '/add_calender');
-        },
-        tooltip: "Add new Teacher",
-        child: new Icon(Icons.add),
-      ),
     );
   }
 

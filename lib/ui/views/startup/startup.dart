@@ -42,7 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF2B292A),
-     // appBar: AppBar(title: Text("Nav Bar")),
       body: SizedBox.expand(
         child: PageView(
           controller: _pageController,
@@ -77,113 +76,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavyBarItem(
             title: Text('About'),
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.help)
           ),
         ],
       ),
     );
   }
 
-
-  /*
-  _home(BuildContext context){
-    return Scaffold(
-      backgroundColor: Color(0xFF2B292A),
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('School TimeTable'),
-      ),
-      body: StreamBuilder<List<EventModel>>(
-          stream: eventDBS.streamList(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              List<EventModel> allEvents = snapshot.data;
-              if (allEvents.isNotEmpty) {
-                _events = _groupEvents(allEvents);
-              } else {
-                _events = {};
-                _selectedEvents = [];
-              }
-            }
-            return SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(padding: EdgeInsets.only(top: 10)),
-                  TableCalendar(
-                    events: _events,
-                    initialCalendarFormat: CalendarFormat.week,
-                    calendarStyle: CalendarStyle(
-                        canEventMarkersOverflow: true,
-                        todayColor: Colors.orange,
-                        selectedColor: Theme.of(context).primaryColor,
-                        todayStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                            color: Colors.white)),
-                    headerStyle: HeaderStyle(
-                      centerHeaderTitle: true,
-                      formatButtonDecoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      formatButtonTextStyle: TextStyle(color: Colors.white),
-                      formatButtonShowsNext: false,
-                    ),
-                    startingDayOfWeek: StartingDayOfWeek.monday,
-                    onDaySelected: (date, events) {
-                      setState(() {
-                        _selectedEvents = events;
-                      });
-                    },
-                    builders: CalendarBuilders(
-                      selectedDayBuilder: (context, date, events) => Container(
-                          margin: const EdgeInsets.all(4.0),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: Text(
-                            date.day.toString(),
-                            style: TextStyle(color: Colors.white),
-                          )),
-                      todayDayBuilder: (context, date, events) => Container(
-                          margin: const EdgeInsets.all(4.0),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Colors.orange,
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: Text(
-                            date.day.toString(),
-                            style: TextStyle(color: Colors.white),
-                          )),
-                    ),
-                    calendarController: _controller,
-                  ),
-                  ..._selectedEvents.map((event) => ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.green,
-                          child: Icon(Icons.add),
-                        ),
-                        title: Text(event.title),
-                        subtitle: Text(event.eventDate.day),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => EventDetailsPage(
-                                        event: event,
-                                      )));
-                        },
-                      )),
-                ],
-              ),
-            );
-          }),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => Navigator.pushNamed(context, '/add_event'),
-      ),
-    );
-  }*/
 }

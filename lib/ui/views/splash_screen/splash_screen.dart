@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       return navigationPage();
     } else {
       // Set the flag to true at the end of onboarding screen if everything is successfull and so I am commenting it out
-      //await prefs.setBool('seen', true);
+      await prefs.setBool('seen', true);
       return Navigator.of(context)
           .pushReplacementNamed(Routes.introViewRoute)
           // i dont want to pop the screen, just replace it completely
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.of(context).pushReplacementNamed(Routes.introViewRoute);
+    Navigator.of(context).pushReplacementNamed(Routes.myhomepageRoute);
   }
 
   @override
