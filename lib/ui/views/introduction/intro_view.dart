@@ -19,36 +19,36 @@ class IntroScreenState extends State<IntroScreen> {
 
     slides.add(
       new Slide(
-        title: "ERASER",
+        title: "Welcome",
         description:
-            "Allow miles wound place the leave had. To sitting subject no improve studied limited",
-        pathImage: "assets/images/logo.png",
-        backgroundColor: Color(0xfff5a623),
+            "Welcome to the most Advanced Teaching timetable specificaly designed for you",
+        pathImage: "assets/images/onboarding/onboarding1.png",
+        backgroundColor: Colors.grey,
       ),
     );
     slides.add(
       new Slide(
-        title: "PENCIL",
+        title: "Easy",
         description:
-            "Ye indulgence unreserved connection alteration appearance",
-        pathImage: "assets/images/logo.png",
-        backgroundColor: Color(0xff203152),
+            "The timetable is easy to use and navigate with the use of modern Google Calender..",
+        pathImage: "assets/images/onboarding/onboarding2.png",
+        backgroundColor: Colors.grey
       ),
     );
     slides.add(
       new Slide(
-        title: "RULER",
+        title: "Manage",
         description:
-            "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
-        pathImage: "assets/images/logo.png",
-        backgroundColor: Color(0xff9932CC),
+            "View and manage your classes and lessons in the easier way possible... We love to see you shine",
+        pathImage: "assets/images/onboarding/onboarding3.png",
+        backgroundColor: Colors.grey,
       ),
     );
   }
 
   void onDonePress() {
     // Do what you want
-    Navigator.of(context).pushNamed(Routes.homeViewRoute);
+    Navigator.of(context).pushNamed(Routes.myhomepageRoute);
   }
 
   @override
