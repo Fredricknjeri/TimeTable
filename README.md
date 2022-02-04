@@ -1,6 +1,6 @@
 # TimeTable
 
-A new Flutter project.
+Smart timetable for schools
 
 ## Getting Started
 
